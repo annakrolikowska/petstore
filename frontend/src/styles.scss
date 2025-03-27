@@ -1,3 +1,4 @@
+@use '@angular/material' as mat;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -15,14 +16,45 @@
   --font-xl: 3.375rem;
 }
 
+html {
+  scroll-behavior: smooth;
+
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$orange-palette,
+        tertiary: mat.$blue-palette
+      ),
+      typography: Roboto,
+      density: 0
+    )
+  );
+}
+
+html,
 body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
   font-family: var(--font-primary);
   font-size: var(--font-base);
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+
 h1 {
   font-size: var(--font-xl);
-  font-weight: bold;
+  font-weight: 700;
 }
 
 h2 {
@@ -32,5 +64,16 @@ h2 {
 
 h3 {
   font-size: var(--font-md);
-  font-weight: 500;
+  font-weight: 600;
+}
+
+.subheading {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.container {
+  justify-self: center;
+  max-width: 1440px;
+  padding: 60px;
 }
